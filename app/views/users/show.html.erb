@@ -1,2 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% @books.each do |book| %>
+<div>
+  <%= link_to book_path(book.id) do %>
+    <%= image_tag book.get_image %>
+  <% end %>
+  <%= image_tag @user.get_profile_image(100, 100) %>
+  <p>name <%= @user.name %></p>
+  <p>introduction <%= @user.introduction %></p>
+</div>
+<% end %>

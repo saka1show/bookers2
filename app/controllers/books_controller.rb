@@ -15,10 +15,13 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def show
+  end
+
   private
 
   def book_params
-    params.require(:book).permit(:name, :body)
+    params.require(:book).permit(:title, :body)
   end
 
 end
