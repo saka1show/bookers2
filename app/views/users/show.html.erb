@@ -1,10 +1,7 @@
-<% @books.each do |book| %>
 <div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
-  <% end %>
-  <%= image_tag @user.get_profile_image(100, 100) %>
-  <p>name <%= @user.name %></p>
-  <p>introduction <%= @user.introduction %></p>
+  <h3>User info</h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <p>name</p><%= @user.name %>
+  <p>introduction</p><%= @user.introduction %>
+  <%= link_to "人", edit_user_path(@user) %>
 </div>
-<% end %>
