@@ -1,11 +1,31 @@
+<%= render 'sidebar', book: @book %>
+
 <h1>Books</h1>
 
-<% @books.each do |book| %>
+<% if current_page?(user_books_path) %>
+  <% @books.each do |book| %>
+    <p>Title</p>
+    <%= link_to book.title, "/books/#{book.id}" %>
 
-<p>Title</p>
-<%= link_to book.title, "/books/#{book.id}" %>
+    <p>Option</p>
+    <span><%= book.body %></span>
+  <% end %>
 
-<p>Option</p>
-<span><%= book.body %></span>
+<% elsif current_page?(books_path) %>
+  <% @books.each do |book| %>
+    <p>Title</p>
+    <%= link_to book.title, "/books/#{book.id}" %>
 
+    <p>Option</p>
+    <span><%= book.body %></span>
+  <% end %>
+
+<% else %>
+  <% @books.each do |book| %>
+    <p>Title</p>
+    <%= link_to book.title, "/books/#{book.id}" %>
+
+    <p>Option</p>
+    <span><%= book.body %></span>
+  <% end %>
 <% end %>

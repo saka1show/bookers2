@@ -11,8 +11,13 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def user_index
+    @books = current_user.books
+  end
+
   def index
-    @books = Book.all
+      @user = current_user
+      @books = Book.all
   end
 
   def show
