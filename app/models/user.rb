@@ -9,6 +9,9 @@ class User < ApplicationRecord
 
   attr_accessor :image
 
+  validates :name, presence: true
+  validates :introduction, presence: true
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/sample-author1.jpg')

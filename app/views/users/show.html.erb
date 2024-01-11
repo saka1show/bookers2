@@ -1,9 +1,10 @@
 <%= render '/books/sidebar', book: @book %>
-
-<div>
-  <h3>User info</h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <p>name</p><%= @user.name %>
-  <p>introduction</p><%= @user.introduction %>
-  <%= link_to "人", edit_user_path(@user) %>
+<div class="col-md-8 offsetmd-1">
+  <div>
+    <h3>User info</h3>
+    <%= image_tag @user.get_profile_image(100,100) %>
+    <p>name</p><%= @user.name %>
+    <p>introduction</p><%= @user.introduction %>
+    <%= link_to "人", edit_user_path(@user) %>
+  </div>
 </div>

@@ -1,10 +1,12 @@
 <%= render 'sidebar', book: @book %>
 
-<h1>Books</h1>
-  <% @books.each do |book| %>
-    <p>Title</p>
-    <%= link_to book.title, book_path(book) %>
+<div class="col-md-8 offset-md-1">
+  <h1>Books</h1>
+    <% @books.each do |book| %>
+      <p>Title</p>
+      <%= link_to book.title, book_path(book) %>
 
-    <p>Option</p>
-    <span><%= book.body %></span>
-  <% end %>
+      <p>Option</p>
+      <span><%= book.body %></span>
+    <% end %>
+</div>
