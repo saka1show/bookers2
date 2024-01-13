@@ -17,7 +17,7 @@
           <%= link_to "Bookers", "/home/top",class:"nav-link text-white" %>
           <ul class="navbar-nav ml-auto flex-row" >
             <% if user_signed_in? %>
-              <li class="nav-item"><%= link_to user_path(current_user),class:"nav-link text-white" do %><i class="fa-solid fa-house"></i> Home <% end %></li>
+              <li class="nav-item"><%= link_to "/users/#{current_user.id}",class:"nav-link text-white" do %><i class="fa-solid fa-house"></i> Home <% end %></li>
               <li class="nav-item"><%= link_to "/users",class:"nav-link text-white" do %><i class="fa-solid fa-users"></i> Users <% end %></li>
               <li class="nav-item"><%= link_to "/books",class:"nav-link text-white" do %><i class="fa-solid fa-book-open"></i> Books <% end %></li>
               <li class="nav-item"><%= link_to "/users/sign_out", method: :delete,class:"nav-link text-white" do %><i class="fa-solid fa-right-from-bracket"></i> Log out <% end %></li>
@@ -31,19 +31,12 @@
         </nav>
       </div>
     </header>
+
     <main class="container">
-      <div class="row">
-        <% flash.each do |message_type, message| %>
-          <div class="flash-message <%= message_type %>"><%= message %></div>
-        <% end %>
-        <% if @book.errors.any? %>
-          <%= @book.errors.count %>errrors prohibited this obj from being saved:
-          <ul>
-            <% @book.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        <% end %>
+      <% flash.each do |message_type, message| %>
+        <div class="flash-message <%= message_type %>"><%= message %></div>
+      <% end %>
+      <div class="row mt-3">
       <%= yield %>
       </div>
     </main>

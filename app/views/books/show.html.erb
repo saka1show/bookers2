@@ -5,7 +5,7 @@
     <h1>Book detail</h1>
     <%= image_tag @book.get_image %>
     <%= link_to @user.name, user_path(@user) %>
-    <p>Title <%= link_to @book.title, @book %></p>
+    <p>Title <%= link_to @book.title, book_path(@book) %></p>
     <p>Option <%= @book.body %></p>
     <% if @book.user == current_user %>
       <p><%= link_to "Edit", edit_book_path(@book) %></p>
