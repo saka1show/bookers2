@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root to: 'homes#top'
-  get 'home/top', to:'homes#top'
   get 'home/about' => 'homes#about', as:'about'
   # get '/books/#{current_user.id}', to: 'books#user_index', as: 'user_index'
 

@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="row">
+<div class="row mt-3">
     <div>
       <% if @book.errors.any? %>
         <%= @book.errors.count %>errors prohibited this obj from being saved:
@@ -10,8 +9,8 @@
         </ul>
       <% end %>
     </div>
-  </div>
-  <div class="row">
+</div>
+<div class="row mt-3">
     <div>
       <h1>Editing Book</h1>
       <%= form_with model: @book do |f| %>
@@ -24,9 +23,8 @@
 
         <%= f.submit 'Update Book' %></br>
 
-        <%= link_to "Show", book_path %> | <%= link_to "Back", '/books' %>
+        <%= link_to "Show", book_path(@book) %> | <%= link_to "Back", '/books' %>
 
       <% end %>
     </div>
-  </div>
 </div>

@@ -1,3 +1,4 @@
+<div class="row mt-3">
 <div>
   <% if @user.errors.any? %>
     <%= @user.errors.count %>errors prohibited this obj from being saved:
@@ -8,8 +9,10 @@
     </ul>
   <% end %>
 </div>
+</div>
 
-<div>
+<div class="row mt-3">
+  <div>
   <h1>User info</h1>
   <%= form_with model: @user do |f| %>
     <h4>Name</h4>
@@ -20,4 +23,5 @@
     <%= f.text_field :introduction %><br>
     <%= f.submit 'Update User'%>
   <% end %>
+  </div>
 </div>

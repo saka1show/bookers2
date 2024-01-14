@@ -1,15 +1,43 @@
-<%= render 'sidebar', book: @book %>
+<div class="row mt-3">
+<%= render 'sidebar', book: @book_new %>
 
 <div class="col-md-8 offset-md-1">
   <div>
     <h1>Book detail</h1>
-    <%= image_tag @book.get_image %>
-    <%= link_to @user.name, user_path(@user) %>
-    <p>Title <%= link_to @book.title, book_path(@book) %></p>
-    <p>Option <%= @book.body %></p>
     <% if @book.user == current_user %>
-      <p><%= link_to "Edit", edit_book_path(@book) %></p>
-      <p><%= link_to "Destroy", book_path(@book), method: :delete %></p>
+    <table class="table">
+      <tbody>
+        <tr></tr>
+        <tr>
+          <th>
+            <%= link_to user_path(@user) do %>
+              <%= image_tag @book.get_image %></br>
+              <%= @user.name %>
+            <% end %>
+          </th>
+          <th><%= link_to @book.title, book_path(@book) %></th>
+          <th><%= @book.body %></th>
+          <th><a class="btn btn-sm btn-success" href=<%= edit_book_path(@book.id) %>>Edit</a></th>
+          <th><a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger" data-method="delete" href=<%= book_path(@book) %>>Destroy</a></th>
+        </tr>
+      </tbody>
+    </table>
+    <% else %>
+    <table class="table">
+      <tbody>
+        <tr></tr>
+        <tr>
+           <th>
+            <%= link_to user_path(@user) do %>
+              <%= image_tag @book.get_image %></br>
+              <%= @user.name %>
+            <% end %>
+          </th>
+          <th><%= link_to @book.title, book_path(@book) %></th>
+          <th><%= @book.body %></th>
+        </tr>
+      </tbody>
+    </table>
     <% end %>
   </div>
 </div>
